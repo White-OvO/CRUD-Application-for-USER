@@ -7,12 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Entity 
 // makes the CREATE TAbLE possible
@@ -23,12 +25,12 @@ public class user {
 //	Strategy type strategy = GeneratiobType.AUTO 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long userId;
+private Long userId;
 	
 	private String userName;	
 //   Hibernating this code will auto run to MYSQL with the type of tables that you have created.
 //  gives rows on MYSQL
- 	@ManyToMany(etch = FetchType.LAZY)
+ 	@ManyToMany
 // 	@JoinTable  	we give it a name "user_id"
 	@JoinTable(name = "user_role"),
 	joinColumns = { 

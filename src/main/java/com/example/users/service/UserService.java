@@ -1,11 +1,14 @@
 package com.example.users.service;
 
 import java.util.List;
+import java.util.Optional;
+
+import com.example.users.model.User;
 
 public interface UserService {
 // creating a user ; 	
 //method saveUser	
-public user saveUser(User user);
+public User saveUser(User user);
 // the methods are saved here
  
 
@@ -24,11 +27,11 @@ public void deleteUser(Long id);
 //public Optional<List<User>> getUserOrderByName
 //Pageable List = PageRequest.of(page, rows);
 
-return userRepository.findByOrderUserName(int page, int rows);
 
-@override
-public Optional<List<User>> getUserOrderByName
-Pageable List = PageRequest.of(page, rows);
+
+
+public Optional<List<User>> 
+getUsersOrderByName(int page, int rows);
 
 
 }
