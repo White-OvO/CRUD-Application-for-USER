@@ -1,0 +1,55 @@
+package com.example.users.model;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity 
+// makes the CREATE TAbLE possible
+@Getter
+@Setter
+public class user {
+//	columns Private KEY = @Id
+//	Strategy type strategy = GeneratiobType.AUTO 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long userId;
+	
+	private String userName;	
+//   Hibernating this code will auto run to MYSQL with the type of tables that you have created.
+//  gives rows on MYSQL
+ 	@ManyToMany(etch = FetchType.LAZY)
+// 	@JoinTable  	we give it a name "user_id"
+	@JoinTable(name = "user_role"),
+	joinColumns = { 
+// 	"user_id on the other hand will do the opposite and name a user_id; note it is a private method
+			@JoinColumn(name = "user_id")},
+	inverseJoinColumns = { 
+// role_id is a prvivate for "role_id"		
+			@JoinColumn(name = "role_id")
+	})
+@JsonIgnore
+private Set <Role> role = new HashSet<>();
+ 	
+	@OneToMany(mappedBy = "user")
+	@JsonIgnore
+	private Set<Email> email = new HashSet<>();
+	
+	
+}
+
+
+
+
+
+
