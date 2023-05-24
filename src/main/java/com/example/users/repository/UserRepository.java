@@ -1,4 +1,4 @@
-package com.example.users.respository;
+package com.example.users.repository;
 
 
 // mock data is also included here
@@ -6,7 +6,7 @@ package com.example.users.respository;
 
 //extend respository stores data or calling data base for specific information		
 import java.util.List;
-import java.util.Optional;
+//import java.util.Optional; --because we took of the optional from the method
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,7 +17,9 @@ import com.example.users.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
 
-	Optional<List<User>> findByOrderByUserName(Pageable list);
+	List<User> findByOrderByUserName(Pageable list);
+
+	User findByUserName(String username);
 
 	/////////////////////////////////////////////////
 	//custom methods here

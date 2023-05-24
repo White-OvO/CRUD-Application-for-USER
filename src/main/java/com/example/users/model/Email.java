@@ -13,7 +13,7 @@ import lombok.Setter;
 //other side to the many to one or many to many
 @Entity
 @Getter
-
+ 
 @Setter
 public class Email {
 
@@ -28,3 +28,4 @@ public class Email {
 	@JoinColumn(name = "user_id")
 	private User user;
 }
+ 
