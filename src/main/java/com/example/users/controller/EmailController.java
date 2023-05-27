@@ -23,7 +23,13 @@ import com.example.users.service.EmailService;
 //request mapping will create something
 //get mapping will pull information
 
-@RequestMapping("/users/user")
+
+
+//wrong
+//@RequestMapping("/users/user")
+
+@RequestMapping("/users/email")
+
 
 public class EmailController {
 	private EmailService emailService;

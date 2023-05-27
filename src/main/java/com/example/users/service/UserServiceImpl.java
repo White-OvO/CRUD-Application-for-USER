@@ -97,7 +97,7 @@ public class UserServiceImpl implements UserService {
 							.stream()
 							.map(Role::getRoleName)
 							.collect(Collectors.toList()),
-						user.getEmail()
+						user.getEmail() 
 							.stream()
 							.map(Email::getEmailAddress)
 							.collect(Collectors.toList())

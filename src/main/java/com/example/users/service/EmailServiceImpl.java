@@ -23,7 +23,7 @@ public class EmailServiceImpl implements EmailService {
 	
 	
 	@Autowired
-	public EmailServiceImpl(EmailRepository emailRepository,UserRepository userrepository ) {
+	public EmailServiceImpl(EmailRepository emailRepository,UserRepository userRepository ) {
 		this.emailRepository = emailRepository;
 		
 		this.userRepository = userRepository;

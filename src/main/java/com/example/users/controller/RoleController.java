@@ -27,7 +27,11 @@ import com.example.users.service.RoleService;
 //request mapping will create something
 //get mapping will pull information
 
-@RequestMapping("/users/user")
+
+//wrong will throw error 1948
+//@RequestMapping("/users/user")
+
+@RequestMapping("/users/role")
 
 public class RoleController {
 
